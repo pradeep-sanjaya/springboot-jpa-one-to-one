@@ -38,7 +38,7 @@ public class JointableApplication implements ApplicationRunner {
 
 			startTime = System.currentTimeMillis();
 
-			// read 1,000,000
+			// read 10,000
 			for (int i = 1; i <= 10000; i++) {
 				User user = session.get(User.class, RandomUtils.nextInt(0, 1000000));
 				//System.out.printf("user" + user.toString());
@@ -47,7 +47,7 @@ public class JointableApplication implements ApplicationRunner {
 			logTime(startTime, "Total time taken for 10K read:");
 
 
-			// save 100
+			// write 10,000
 			startTime = System.currentTimeMillis();
 
 			for (int i = 1; i <= 10000; i++) {
