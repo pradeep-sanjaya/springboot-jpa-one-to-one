@@ -13,9 +13,8 @@ public class User {
     @Column(name = "firstname", nullable = true)
     private String firstname;
 
-
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @PrimaryKeyJoinColumn
     private Address address;
 
     public void setId(Long id) {
@@ -28,14 +27,6 @@ public class User {
 
     public void setFirstname(String firstname) {
         this.firstname = firstname;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
     }
 
     @Override

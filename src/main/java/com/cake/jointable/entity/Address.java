@@ -18,8 +18,17 @@ public class Address {
                 '}';
     }
 
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     @Column(name = "address")
     private String address;
+
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Long getId() {
         return id;

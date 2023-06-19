@@ -52,14 +52,15 @@ public class JointableApplication implements ApplicationRunner {
 
 			for (int i = 1; i <= 10000; i++) {
 
-				Address address = new Address();
-				address.setAddress(RandomStringUtils.random(10, true, false));
-
 				User user = new User();
 				user.setFirstname(RandomStringUtils.random(10, true, false));
-				user.setAddress(address);
+
+				Address address = new Address();
+				address.setAddress(RandomStringUtils.random(10, true, false));
+				address.setUser(user);
 
 				session.save(user);
+				session.save(address);
 			}
 
 			logTime(startTime, "Total time taken for 10K write:");
